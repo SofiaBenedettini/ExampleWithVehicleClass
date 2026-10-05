@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/doc/" />
+  <Folder Name="/src/">
+    <Project Path="src/BlaisePascal.ExampleWithVehicleClass.Console/BlaisePascal.ExampleWithVehicleClass.Console.csproj" />
+    <Project Path="src/BlaisePascal.ExampleWithVehicleClass.Domain/BlaisePascal.ExampleWithVehicleClass.Domain.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/BlaisePascal.ExampleWithVehicleClass.DomainTest/BlaisePascal.ExampleWithVehicleClass.DomainTest.csproj" />
+  </Folder>
+</Solution>
