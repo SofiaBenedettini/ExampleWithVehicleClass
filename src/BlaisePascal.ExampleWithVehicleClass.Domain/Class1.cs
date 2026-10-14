@@ -14,10 +14,50 @@
             { return _licensePlate; }
             private set
             {
-                if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("The plate should have characters");
+                if (value == null)
+                {
+                    throw new ArgumentNullException("The license cant be null");
+                }
+
+                if (value.Length != 7)
+                {
+                    throw new ArgumentException("The license plate should be long 7 characters");
+                }
+
+                string validLetters = "ABCDEFGHJKLMNPRSTVWXYZ"; // lettere valide, tranne la I, O, Q e U
+                string validNumbers = "0123456789";
+
+                for (int i = 0; i < 2; i++)
+                {
+                    string character = value[i].ToString();
+                    if (!validLetters.Contains(character))
+                    {
+                        throw new ArgumentException("The letters of the first two positions should be valid");
+                    }
+                }
+
+                for (int i = 2; i <= 4; i++)
+                {
+                    string carattere = value[i].ToString();
+                    if (!validNumbers.Contains(carattere))
+                    {
+                        throw new ArgumentException("Those positions should have numbers from 0 to 9");
+                    }
+                }
+
+                for (int i = 5; i <= 6; i++)
+                {
+                    string carattere = value[i].ToString();
+                    if (!validLetters.Contains(carattere))
+                    {
+                        throw new ArgumentException("The last two letters should be valid");
+                    }
+                }
+
                 _licensePlate = value;
             }
         }
+       
 
         public int OdometerKm
         {
